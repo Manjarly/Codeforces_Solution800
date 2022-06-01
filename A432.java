@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class A1367 {
+public class A432 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 //        int min = Arrays.stream(arr).min().orElse(0);
@@ -16,19 +16,19 @@ public class A1367 {
 //        int sum = Arrays.stream(arr).sum();
 //        char = 'b';
 //        int result = char - 'a'; // this will give result = 2;
-        int t = sc.nextInt();
-        while(t-- > 0){
-            String s = sc.next();
-            
-            StringBuilder sb = new StringBuilder();
-            
-            for(int i = 0; i < s.length(); i += 2){
-                sb.append(s.charAt(i));
-            }
-            sb.append(s.charAt(s.length() - 1));
-            String result = sb.toString();
-            System.out.println(result);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] y = new int[n];
+        
+        for(int i = 0; i < n; i++){
+            y[i] = sc.nextInt();
         }
+        Arrays.sort(y);
+        int team = 0;
+        for(int i = 0; i <= n-3; i+= 3){
+            if(y[i] <= 5 - k && y[i+1] <= 5 - k && y[i+2] <= 5 - k) team++;
+        }
+        System.out.println(team);
         sc.close();
     }
 }
